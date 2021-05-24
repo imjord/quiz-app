@@ -51,6 +51,38 @@ const submitBtn = document.getElementById("submit");
 
 let currentQuiz = 0;
 let score = 0;
+let highscore = "";
+
+
+
+
+function highscoreFunction() {
+    var score = 0;
+    var highscore = localStorage.getItem("highscore");
+
+    if(highscore !== null){
+    if (score > highscore) {
+        localStorage.setItem("highscore", score);      
+    }
+}
+else{
+    localStorage.setItem("highscore", score);
+}
+}
+
+
+function quizTimer() {
+    var count = 75;
+    var interval = setInterval(function(){
+    document.getElementById('time').innerHTML=count;
+    count--;
+    if (count === 0){
+    clearInterval(interval);
+    document.getElementById('time').innerHTML='Done';
+    alert("You're out of time!");
+  }
+}, 1000);
+}
 
 
 
@@ -67,6 +99,9 @@ loadQuiz();
 
 function loadQuiz() {
     deselectAnswers();
+    quizTimer();
+    highscoreFunction();
+    
 
 
     const currentQuizData = quizData[currentQuiz];
@@ -106,6 +141,8 @@ function deselectAnswers() {
 
 
 submitBtn.addEventListener("click", function() {
+
+    
 
     const answer = getSelected();
     if(answer) {

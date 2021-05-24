@@ -18,11 +18,11 @@ const quizData = [{
         correct: 'd'
     }, 
     {
-        question: 'who is the president of the usa',
-        a: 'obama',
-        b: 'donald trump',
-        c: 'joe biden',
-        d: 'george bush',
+        question: 'Inside which HTML element do we put the javascript?',
+        a: '<javascript>',
+        b: '<js>',
+        c: '<script>',
+        d: '<script)',
         correct: 'c'
 
     },

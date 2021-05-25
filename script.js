@@ -46,6 +46,7 @@ const b_text = document.getElementById("b_text");
 const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
 const submitBtn = document.getElementById("submit");
+const scoreHigh = document.getElementById("highscor");
 
 // var for score and current page.
 
@@ -57,7 +58,6 @@ let highscore = "";
 
 
 function highscoreFunction() {
-    var score = 0;
     var highscore = localStorage.getItem("highscore");
 
     if(highscore !== null){
@@ -68,6 +68,10 @@ function highscoreFunction() {
 else{
     localStorage.setItem("highscore", score);
 }
+
+scoreHigh.innerHTML = `<h1> HIGHSCORE: </h1> ${highscore}`;
+
+
 }
 
 
